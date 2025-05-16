@@ -1,0 +1,4 @@
+ignoredBuiltDependencies:
+  - '@biomejs/biome'
+  - '@swc/core'
+  - esbuild
