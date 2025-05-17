@@ -3,7 +3,12 @@ import "./App.css";
 import { PixelGrid } from "./components/PixelGrid";
 import { Toolbar } from "./components/Toolbar";
 
-const URL = "localhost:3000";
+const URL = "http://localhost:3000";
+
+type UpdateColorProps = {
+	x: number;
+	y: number;
+};
 
 const App = () => {
 	const [selectedColor, setSelectedColor] = useState("black");
@@ -16,7 +21,7 @@ const App = () => {
 			.catch((error) => console.error("Error fetching grid data:", error));
 	}, []);
 
-	const updateColor = async (x, y) => {
+	const updateColor = async ({ x, y }: UpdateColorProps) => {
 		try {
 			const response = await fetch(`${URL}/setGridColor`, {
 				method: "POST",
