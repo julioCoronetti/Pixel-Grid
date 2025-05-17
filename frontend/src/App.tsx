@@ -8,14 +8,20 @@ const URL = "https://pixel-grid-02t8.onrender.com";
 const App = () => {
 	const [selectedColor, setSelectedColor] = useState("black");
 	const [grid, setGrid] = useState<Pixel[]>([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		fetch(`${URL}/grid`)
 			.then((response) => response.json())
-			.then((data) => setGrid(data.grid))
-			.catch((error) => console.error("Error fetching grid data:", error));
+			.then((data) => {
+				setGrid(data.grid);
+				setLoading(false);
+			})
+			.catch((error) => {
+				console.error("Error fetching grid data:", error);
+				setLoading(false);
+			});
 	}, []);
-
 	const updateColor = async (x: number, y: number) => {
 		try {
 			const response = await fetch(`${URL}/setGridColor`, {
@@ -35,7 +41,11 @@ const App = () => {
 			<h1 className="text-5xl font-bold bg-gradient-to-r from-rose-500 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
 				Pixel Grid
 			</h1>
-			<PixelGrid grid={grid} updateColor={updateColor} />
+			{loading ? (
+				<p className="text-4xl mt-20">Loading...</p>
+			) : (
+				<PixelGrid grid={grid} updateColor={updateColor} />
+			)}
 			<Toolbar
 				selectedColor={selectedColor}
 				setSelectedColor={setSelectedColor}
