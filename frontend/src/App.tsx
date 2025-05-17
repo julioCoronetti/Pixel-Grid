@@ -32,7 +32,9 @@ const App = () => {
 
 	return (
 		<div className="h-full flex flex-col justify-center items-center gap-10">
-			<h1 className="text-4xl font-bold">Pixel Grid</h1>
+			<h1 className="text-5xl font-bold bg-gradient-to-r from-rose-500 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
+				Pixel Grid
+			</h1>
 			<PixelGrid grid={grid} updateColor={updateColor} />
 			<Toolbar
 				selectedColor={selectedColor}
