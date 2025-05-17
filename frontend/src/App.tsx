@@ -3,7 +3,7 @@ import { PixelGrid } from "./components/PixelGrid";
 import { Toolbar } from "./components/Toolbar";
 import type { Pixel } from "./types/Pixel";
 
-const URL = "https://pixel-grid-02t8.onrender.com/";
+const URL = "https://pixel-grid-02t8.onrender.com";
 
 const App = () => {
 	const [selectedColor, setSelectedColor] = useState("black");
