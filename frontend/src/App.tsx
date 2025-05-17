@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { PixelGrid } from "./components/PixelGrid";
 import { Toolbar } from "./components/Toolbar";
+import type { Pixel } from "./types/Pixel";
 
 const URL = "http://localhost:3000";
 
-type UpdateColorProps = {
-	x: number;
-	y: number;
-};
-
 const App = () => {
 	const [selectedColor, setSelectedColor] = useState("black");
-	const [grid, setGrid] = useState([]);
+	const [grid, setGrid] = useState<Pixel[]>([]);
 
 	useEffect(() => {
 		fetch(`${URL}/grid`)
@@ -21,7 +16,7 @@ const App = () => {
 			.catch((error) => console.error("Error fetching grid data:", error));
 	}, []);
 
-	const updateColor = async ({ x, y }: UpdateColorProps) => {
+	const updateColor = async (x: number, y: number) => {
 		try {
 			const response = await fetch(`${URL}/setGridColor`, {
 				method: "POST",
@@ -36,8 +31,8 @@ const App = () => {
 	};
 
 	return (
-		<div className="content-wrapper">
-			<h1>Pixel Grid</h1>
+		<div className="h-full flex flex-col justify-center items-center gap-10">
+			<h1 className="text-4xl font-bold">Pixel Grid</h1>
 			<PixelGrid grid={grid} updateColor={updateColor} />
 			<Toolbar
 				selectedColor={selectedColor}
