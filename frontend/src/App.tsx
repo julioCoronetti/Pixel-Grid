@@ -37,19 +37,21 @@ const App = () => {
 	};
 
 	return (
-		<div className="h-full flex flex-col justify-center items-center gap-10">
+		<div className="h-full flex flex-col justify-center items-center gap-5">
 			<h1 className="text-5xl font-bold bg-gradient-to-r from-rose-500 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">
 				Pixel Grid
 			</h1>
-			{loading ? (
-				<p className="text-4xl mt-20">Loading...</p>
-			) : (
-				<PixelGrid grid={grid} updateColor={updateColor} />
-			)}
-			<Toolbar
-				selectedColor={selectedColor}
-				setSelectedColor={setSelectedColor}
-			/>
+			<main className="flex items-center space-x-10 max-[768px]:flex-col max-[768px]:space-x-0 max-[768px]:space-y-5">
+				{loading ? (
+					<p className="text-4xl mt-20">Loading...</p>
+				) : (
+					<PixelGrid grid={grid} updateColor={updateColor} />
+				)}
+				<Toolbar
+					selectedColor={selectedColor}
+					setSelectedColor={setSelectedColor}
+				/>
+			</main>
 		</div>
 	);
 };

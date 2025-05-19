@@ -17,7 +17,7 @@ export const Toolbar = ({ selectedColor, setSelectedColor }: ToolbarProps) => {
 		"white",
 	];
 	return (
-		<div className="flex m-[40px auto] p-[12px] border-1 border-gray-500 rounded-[32px] gap-[8px] max-[440px]:p-[2vw] max-[440px]:gap-[1vw]">
+		<div className="flex flex-col m-[40px auto] p-[12px] border-1 border-gray-500 rounded-[32px] gap-[8px] max-[440px]:p-[2vw] max-[440px]:gap-[1vw] max-[768px]:flex-row ">
 			{colors.map((color) => (
 				<button
 					key={color}
