@@ -25,6 +25,10 @@
 - GitHub: [@julioCoronetti](https://github.com/julioCoronetti)
 - Email: [timeset13@outlook.com](mailto:timeset13@outlook.com)
 
+## 💻 Link to Website
+
+[Access the website here](https://juliocoronetti-pixel-grid.vercel.app)
+
 ## ⚖ License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/julioCoronetti/Pixel-Grid/edit/main/LICENSE) file for more information.
